@@ -16,7 +16,7 @@ The integrated system can be splitted in five main models:
 
 Below you can visualize a representation of the model of our AUV, "*Pasqualo*". 
 
-<img src="https://github.com/rachele182/navigation_systems/assets/75611841/16b22289-f5a4-4cf3-a26e-ecd3426b7a5f" width="425">
+<img src="https://github.com/rachele182/navigation_systems/assets/75611841/16b22289-f5a4-4cf3-a26e-ecd3426b7a5f" width="375">
 
 The project contains three main folders: 
 
