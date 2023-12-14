@@ -6,12 +6,13 @@
 This repository contains the final project of course *Underwater Systems* for the master degree in Robotics and Automation Engineering at Universita´ di Pisa.   
 The work includes the complete model of the AUV, the simulation of the environment and sensors, the design of the controller and navigation filter needed to perform the mission.   
 All the simulations and validation tests were performed using Matlab/Simulink environment.  
+
 The integrated system can be splitted in five main models:  
-    - **Trajectory generator**: it computes the waypoints and the interpolation between them to design the survey trajectory of the unknow area;
-    - **Vehicle Model**: it contains all the AUV geometric parameters, the dynamics, the drag matrices as well as the position of the thrusters;
-    - **Control**: it contains the PID controllers for the thrusters of the AUV;
-    - **Sensor+Environment**: it contains the complete simulation of the environment (seabed model) and model of the chosen sensors;
-    - **Navigation**: it contains the kalman navigation filter. 
+&#x1F538; **Trajectory generator**: it computes the survey trajectory of the unknow area;  
+&#x1F538; **Vehicle Model**: it contains the AUV geometric parameters and dynamics + trusthers postion;  
+&#x1F538;**Control**: it contains the PID controllers for the thrusters of the AUV;  
+&#x1F538;**Sensor+Environment**: it contains the complete simulation of the environment (seabed model) and model of the chosen sensors;  
+&#x1F538;**Navigation**: it contains the kalman navigation filter. 
 
 Below you can visualize a representation of the model of our AUV, "*Pasqualo*". 
 
