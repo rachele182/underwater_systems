@@ -1,2 +1,35 @@
-# underwater_systems
-Complete simulation, control and design of navigation filter of an AUV during a mawn-lower survey in a unknow area
+### <font color="green"> <span style="font-size:larger;"> Underwater Systems</font>
+
+<font color="green">**Title**:</font> Complete model, simulation and design of an navigation filter for AUV during a lawn-mower survey   
+<font color="green">**Authors**:</font> Rachele Nebbia Colomba, Chiara Sammarco, Francesco Vezzi, Matteo Paiano*
+
+This repository contains the final project of course *Underwater Systems* for the master degree in Robotics and Automation Engineering at Universita´ di Pisa.   
+The work includes the complete model of the AUV, the simulation of the environment and sensors, the design of the controller and navigation filter neeeded to perform the mission.   
+All the simulations and validation tests were performed using Matlab/Simulink environment.  
+The integrated system can be splitted in five main models:  
+    - **Trajectory generator**: it computes the waypoints and the interpolation between them to design the survey trajectory of the unknow area;
+    - **Vehicle Model**: it contains all the model geometric parameters, the dynamics, the drag matrices as well as the position of the thrusters;
+    - **Control**: it contains the PID controllers for the thrusters of the AUV;
+    - **Sensor+Environment**: it contains the complete simulation of the environment (seabad representation) and of the chosen sensors;
+    - **Navigation**: it contains the kalman navigation filter. 
+
+Below you can visualize a representation of the model of our AUV, "*Pasqualo*". 
+
+<img src="https://github.com/rachele182/navigation_systems/assets/75611841/16b22289-f5a4-4cf3-a26e-ecd3426b7a5f" width="425">
+
+The project contains three main folders: 
+
+- **sensor_model** : here you can find the matlab/simulink files and the matlab scripts needed to run the simulation of the complete mission;  
+
+- **mission** : here you can find the simulink file and the matlab scripts needed to run the simulation of the complete mission;  
+  
+- **animation**: inside you can find the main script to  run an animation of the executed mission. 
+
+A guide with a brief description of the files as well as the instruction on how to run the simulation/animation can be find in the **contents.md** inside the mission folder.  
+
+*Please note this project was part of at team work of multiple master students. In **sensor_model** we report all the detailed scripts, simulation files developed from the authors for the sensor/environment model.   
+In the other two folder you can find the final mission as result of the full-integration between all the five modules.
+
+<img src="https://github.com/rachele182/navigation_systems/assets/75611841/39082569-4841-47a7-8545-c70805ac7949" width="425">
+
+
