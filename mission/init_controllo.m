@@ -1,6 +1,11 @@
-galleggiamento = 7.6786; % differenza tra peso e galleggiamento in Newton
+%% Control Module
+%% Description: Here after all the parameters needed for the cntrol of the AUV trusthers. 
+
+%%Bouyancy:
+galleggiamento = 7.6786;
 areaOfInterestCorner = [42.317744;10.915136; 0];
 turning_surge = 0.64; %condizione iniziale per l integratore surge per andare a 0.2 m/s lungo la curva
+
 %% Positioning controller
 % surge_controller 
 K_p_surge_pos = 34.5;

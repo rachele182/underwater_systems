@@ -1,7 +1,7 @@
  % Parametri interni al blocco Supervisor
  disp('Loading Supervisor parameters...');
 
-%% Scelta lato maggiore e calcoli conseguenti
+%% Choice of larger side 
 if(firstSideLength >= secondSideLength)
     greaterSide = firstSideLength;
     lesserSide = secondSideLength;
