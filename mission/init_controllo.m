@@ -1,5 +1,5 @@
 %% Control Module
-%% Description: Here after all the parameters needed for the cntrol of the AUV trusthers. 
+%% Description: Here after all the parameters needed for the control of the AUV trusthers. 
 
 %%Bouyancy:
 galleggiamento = 7.6786;

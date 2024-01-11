@@ -1,4 +1,7 @@
-%% Script di inizializzazione TeamA - PAsqualo
+%% TeamA - PAsqualo
+%% Main Initialization File for the integrated system 
+%% Description: Here after all the parameters needed for the complete simulation of the survey mission
+
 clear;close;clc
 
 addpath('include');
@@ -7,8 +10,8 @@ disp('Loading System parameters...')
 
 %% LOAD Mission File
 
-run missionA.m; % Caricamento parametri di missione
-stop_time = 1300; % tempo di stop simulazione simulink
+run missionA.m; % Load mission parameters
+stop_time = 1300; % Stop simulation time in simulink 
 
 %% Environmental data
 
@@ -18,7 +21,7 @@ seaCurrent = [	0.1; %0.05;
 				2.5; %0.1
                 0];       %[m/s] Sea current speed, values can be modified       
 
-%% Data for thrusters [Inspired to Bluerobotics model T200]
+%% Trusthers data [Inspired to Bluerobotics model T200]
 
 D = 0.076;                  % [m] Propeller Diameter
 n_max = 340;                % [rad/s] Maximum propeller rotational speed
