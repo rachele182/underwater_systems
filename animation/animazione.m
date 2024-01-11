@@ -1,9 +1,6 @@
 %% Script animazione
-% Questo script esegue l'animazione di una missione compiuta da PAsqualo 
-% caricando un file.mat o avendo in memoria un output di simulazione.
-% Fatto da: Gruppo Navigazione con l'aiuto del gruppo Sensori
-
-% Aggiornato 10 Giugno 19:03
+% This script execute the complete animation of a mission of the AUV
+% it is possible to execute it by loading .mat file or by having saved in the folder an uotupt of the simulation (from simulink file)
 
 addpath('include_funz');
 %clear all
