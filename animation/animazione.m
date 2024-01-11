@@ -7,7 +7,7 @@ addpath('include_funz');
 load('out_mission_default.mat')
 clearvars -except out 
 
-%% data init
+%% data init, load values
 pos = zeros(size(out.pos.signals.values,1), size(out.pos.signals.values,3));
 for i = 1:size(out.pos.signals.values,3)
 	pos(:,i) = out.pos.signals.values(:,1,i);
@@ -31,13 +31,13 @@ rotPlot = zeros(3,3,size(out.orient.signals.values,3) );
 for i = 1:size(out.orient.signals.values,3)
 	rotPlot(:,:,i) = eul2rotm(orient(:,i)', 'XYZ') * rotx(pi);
 end
-% ulteriore rotazione su x per plottare body_down giu`
 
-% in questo modo basta salvare out in vari .mat
+
+% Sonar values 
 p_sonar_down = [0;0;0.15]; 
 p_sonar_front = [1.1000;0;0];
 
-%% surf generation
+% surf generation
 passo_mesh = 0.5;
 x_surf_max = ceil(max(pos(1,:))) + 25;
 x_surf_min = floor(min(pos(1,:))) - 25;
@@ -49,23 +49,23 @@ y_surf_min = floor(min(pos(2,:))) - 25;
 
 Z_down = arrayfun(@(x,y) depth_fondale(x,y), X_nord, Y_est);
 
-%% parametri animazione
-rate_anim = 100;				% rate di esecuzione dell'animazione
-t0 = 1;						% indice temporale a cui partire
-tend = size(pos,2);			% indice temporale di fine animazione
-length_sist_rif = 2;		% lunghezza quiver per sistemi di rif
-View = [30 20];				% vista iniziale 
-Spin = 0;					% quanto varia l'angolo di vista longitudinalmente [grad]
-ang_cono = deg2rad(15/2);	% apertura cono fls_down
+%% Animation parameters 
+rate_anim = 100;			% rate of animation execution
+t0 = 1;						% initial time
+tend = size(pos,2);			% final time of animation 
+length_sist_rif = 2;		% lenghts of reference systems
+View = [30 20];				% initial view 
+Spin = 0;					% variation of view angle (longitudianl)[degree]
+ang_cono = deg2rad(15/2);	% angle of sonar cone fls_down
 
 % show_impostazioni
-sist_body_show		= 1;	% flag per stampare sistema riferimento body		
-traiettoria_show	= 1;	% flag per stampare sistema traiettoria
-coni_show			= 1;	% flag per stampare coni
+sist_body_show		= 1;	% flag to print reference system body		
+traiettoria_show	= 1;	% flag to print trajectrory
+coni_show			= 1;	% flag to print cones (sonars)
 
-scale_pasqualo = 3;			% scala per osservare pasqualo
+scale_pasqualo = 3;			% scale to plot AUV 
 
-%% Animazione
+%% Animation code
 figure(1)
 clf 
 set(	gca, 'drawmode', 'fast');
@@ -75,7 +75,7 @@ set(	gca, 'drawmode', 'fast');
 % surface
 fondale = surf(X_nord,Y_est,-Z_down,-Z_down,'EdgeColor', 'none', 'FaceAlpha',1);
 
-% veicolo
+% Load AUV model 
 stl_offset = [-1.1; -0.15; -0.15];
 p_veicolo = patch(stlread('veicolo.stl'));
 T_veicolo = hgmat(rotx(pi)/1000*scale_pasqualo, [0 0 0]');
@@ -96,7 +96,7 @@ for t = t0:rate_anim:tend
 		unplot(child_each_plot) ;
 	end
 	
-	% Aggiornamento vettori_now
+	% update vectors_now
 	fls_down_now = fls_down(:,t);	% lettura sonar down
 	fls_front_now = fls_front(:,t);	% lettura sonar front
 	pos_now = pos(:,t);				% posizione PAsqualo
@@ -105,7 +105,7 @@ for t = t0:rate_anim:tend
 	rot_body_now = rotPlot(:,:,t);	% orientazione
 	
 	if sist_body_show == 1
-		% quivers terna body
+		% quivers body
 		qx = rot_body_now * [length_sist_rif; 0; 0];
 		qy = rot_body_now * [0; length_sist_rif; 0];
 		qz = rot_body_now * [0; 0; length_sist_rif];
@@ -120,7 +120,6 @@ for t = t0:rate_anim:tend
 
 		pos_fls_front	= pos_now + rot_body_now * p_sonar_front;
 		delta_fls_front	= rot_body_now * [1; 0; 1]/sqrt(2) * fls_front_now * 1.1; 
-		% * 1.1 per fare un plot piu` carino
 		pos_fls_front_end = pos_fls_front + delta_fls_front;
 
 		r_cono_finale_front = fls_down_now * 1.1 * tan(ang_cono);
@@ -136,19 +135,19 @@ for t = t0:rate_anim:tend
 	Title = ['PAsqualo Animazione (frame ', num2str(t), ' di ', num2str(tend), ')'];
 	title(Title)
 	
-	% Elementi 3D
+	% §D elements 
 	if traiettoria_show == 1
-		% traiettoria
+		% trajectory
 		plot3(pos_tillnow(1,:),pos_tillnow(2,:),-pos_tillnow(3,:),...
 			'-','Color', [0.2 0.2 1],'LineWidth',1.5);
 
-		% traiettoria sul fondale
+		% trajectory on seabed 
 		plot3(pos_tillnow(1,:),pos_tillnow(2,:),...
 			-arrayfun(@(x,y) depth_fondale(x,y), pos_tillnow(1,:), pos_tillnow(2,:)),...
 			'-','Color',[0.9 0.9 0.9],'LineWidth',0.5);
 	end
 	
-	% veicolo
+	% veihicle
 	T_veicolo_now = hgmat(rot_body_now/1000*scale_pasqualo,...
 				pos_now + rot_body_now * scale_pasqualo * stl_offset);
 	set(t_veicolo,'Matrix',T_veicolo_now);
@@ -164,11 +163,11 @@ for t = t0:rate_anim:tend
 	end
  	
 	if coni_show == 1
-		% cono down
+		% cone for sonar down
 		Cone(pos_fls_down', pos_fls_down_end',...
 			[0,r_cono_finale_down], 15, [0.8 0.8 0.8], 0, 0)
 
-		% cono front
+		% cone for sonar front
 		Cone(pos_fls_front', pos_fls_front_end',...
 			[0,r_cono_finale_front], 15, [0.9 0.9 0.9], 0, 0)
 	end
