@@ -1,6 +1,6 @@
 ### <font color="green"> <span style="font-size:larger;"> Contents of Mission folder: </font> </span>
 
-Here afther a brief description of the contents of the folder.   
+Here after a brief description of the contents of the folder.   
 
 
 - **Simulation File**:
@@ -11,7 +11,9 @@ Here afther a brief description of the contents of the folder.
     - main_init.m: script used to run all the initialization files and setup the workspace for the complete system;
     - missionA.m: script to load the mission parameters e.g survey area specifications;
     - proveplots.m: script to plot estimated position results (the plot refers to a pre-run simulation).
-     
+
+- **Include folder**:
+    - contains all the basic functions used in the simulation e.g **seabed_function.m**. 
 
 - **How to run**:
     1. to run a simulation open TeamA_PAsqualo.slx and click on play;
