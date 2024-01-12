@@ -10,9 +10,9 @@ All the simulations and validation tests were performed using Matlab/Simulink en
 The integrated system can be splitted in five main models:  
 &#x1F538; **Trajectory generator**: it computes the survey trajectory of the unknow area;  
 &#x1F538; **Vehicle Model**: it contains the AUV geometric parameters and dynamics + trusthers postion;  
-&#x1F538;**Control**: it contains the PID controllers for the thrusters of the AUV;  
-&#x1F538;**Sensor+Environment**: it contains the complete simulation of the environment (seabed model) and model of the chosen sensors;  
-&#x1F538;**Navigation**: it contains the kalman navigation filter. 
+&#x1F538; **Control**: it contains the PID controllers for the thrusters of the AUV;  
+&#x1F538; **Sensor+Environment**: it contains the complete simulation of the environment (seabed model) and model of the chosen sensors;  
+&#x1F538; **Navigation**: it contains the kalman navigation filter. 
 
 Below you can visualize a representation of the model of our AUV, "*Pasqualo*". 
 
