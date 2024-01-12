@@ -1,27 +1,29 @@
 function [transectPoints,turnPoints, orInTurn] = matricesWayPoints(vett, longer, shorter, dist, trans, rot, yaw)
-% Funzione che genera le matrici contenenti tutti gli waypoints "standard",
-% nel sdr locale allineato al primo transetto, sia sui transetti che per le
-% virate
-%
-%   -vett: coordinate punto iniziale dell'area; 1x3 [m m m]
-%   -longer, shorter: misure area da scansionare (maggiore e minore); [m]
-%   -dist: distanza tra waypoints sullo stesso rettilineo; [m]
-%   -trans: distanza tra transetti; [m]
-%   -rot: indicatore per la direzione di moto
-%   -yaw: angolo di yaw per orientazione di riferimento su traiettoria
+% Description: generation of waypoint matrix with frame alligned to first transectfor all type of trajectory: transects+turns
+
+%%Inputs: 
+%   -vett: initial coordinates; 1x3 [m m m]
+%   -longer, shorter: measureas of survey ares [m]
+%   -dist: distance between waypoints on the same linear tract [m]
+%   -trans: transects distance; [m]
+%   -rot: idex for moto direction
+%   -yaw: yw angle for orientation trajectory
+
+%%Output:
+%  M = waypoint matrix
 
     pts = [];
     count = 0; %Travelled transect number
     
     %Mathematical area management to ensure a complete scan
-    %utilizzo completo lunghezza transetti
+    %complete usage of transects length 
     if mod(longer,dist)==0
         longerRange = [0:dist:longer];
     else
         longerRange = [[0:dist:longer] [longer:longer]];
     end
     
-    %impostazione numero di transetti da compiere
+    %set number of transect to complete
     if mod(shorter,trans) <= trans/2
         shorterRange =[0:trans:shorter];
     else
@@ -49,31 +51,30 @@ function [transectPoints,turnPoints, orInTurn] = matricesWayPoints(vett, longer,
         
         count = count+1;
  
-        pts = cat(3,pts,page);%intera matrice, tutti i transetti
+        pts = cat(3,pts,page);%full matrix, all transects
     end
     
     transectPoints = pts;
     [turnPoints, orInTurn] = virataWayPoints2();
     
     function [turnWayPoints, refOr] = virataWayPoints2()
-    %Generazione di waypoint sulla traiettoria di riferimento durante la
-    % fase di virata; si utilizza una curva semicircolare parametrizzata
+    %Waypoint generation on the turn (`virata`); we use a paramterized semi-circular trajectory
 
         r = trans/2;
-        nwp = 300;%numero waypoints che vogliamo generare nella virata
-        t = 1/nwp:1/nwp:(1-1/nwp); %parametro, "normalizzato" solo per precisione numerica
+        nwp = 300;%number of waypoints in the turns 
+        t = 1/nwp:1/nwp:(1-1/nwp); %normalized parameter (to reach numerical precision)
         points = [];
         orients = [];
 
         s = size(transectPoints);
         
-        %Generazione riferimenti di posizione per transetti e virate
-        for n = [1:1:s(3)-1] %per ogni virata
-            page2 = [];%per ogni virata
-            pageOr = [];%per orientazione, per ogni virata
+        %Generation of reference position points and turns 
+        for n = [1:1:s(3)-1] %for each turn 
+            page2 = [];%for each turn 
+            pageOr = [];%for orientation, for each turn 
 
-            for phi = t %parametri per generazione punti su una virata
-                %waypoint in virata
+            for phi = t %parameters to generate points on a turn
+                %waypoint for turns
                 pt = transectPoints(s(1),:,n)' + ned2Traj(yaw)'*(rot*[0 r 0] + r*[((-1)^(n-1))*sin(pi*phi) cos(pi*phi) 0])';
                 page2 = cat(1, page2, pt');
             end
@@ -82,18 +83,18 @@ function [transectPoints,turnPoints, orInTurn] = matricesWayPoints(vett, longer,
                 page2 = flip(page2);
             end
             
-            %Generazione riferimenti di orientazione per le virate
+            %Generation of orientation reference point during turns
             delta = 180/nwp:180/nwp:(180-180/nwp);
             if rot == 1
-                if mod(n,2)~=0 %virate dispari
+                if mod(n,2)~=0 %odd turns
                     angles = [zeros(nwp-1,1) zeros(nwp-1,1) rad2deg(wrapToPi(deg2rad(yaw+delta')))];
-                else %virate pari
+                else %even turns
                     angles = [zeros(nwp-1,1) zeros(nwp-1,1) rad2deg(wrapToPi(deg2rad(yaw+180-delta')))];
                 end
             else %rot == -1
-                if mod(n,2)~=0 %virate dispari
+                if mod(n,2)~=0 %odd turns
                     angles = [zeros(nwp-1,1) zeros(nwp-1,1) rad2deg(wrapToPi(deg2rad(yaw-delta')))];
-                else %virate pari
+                else %even turns
                     angles = [zeros(nwp-1,1) zeros(nwp-1,1) rad2deg(wrapToPi(deg2rad(yaw+180+delta')))];
                 end
             end

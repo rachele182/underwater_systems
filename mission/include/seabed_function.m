@@ -1,5 +1,9 @@
 
 function sol_t = seabed_function(p_sonar_ned, s_versor_ned)
+%%Description: function used to simulate the sonar sensors --> in this model we research the solution of the equation i.e the intersection between the seabed point and the line projected by the sonar. 
+%%Inputs: p_sonar_ned = point descibing (in a simplified assumption) the sonar
+%         versor_ned = versor indicating the direction of the sonar ray (3x1)
+
     global xfond4 yfond4 zfond4 tfond4 fondale 
     
     sonar = p_sonar_ned + tfond4*s_versor_ned;

@@ -1,9 +1,12 @@
 function rot = fix2LocalNED(phi, theta, psi)
-%Matrice di rotazione generica per una rotazione RPY, da sdr fisso a sdr
-%ruotato
-%   -phi: angolo su asse x
-%   -theta: angolo su asse y
-%   -psi: angolo su asse z
+% Description: compute rotation matrix (RPY) from fixed to local frame
+
+%%Inputs: 
+%   -phi:   rotation angle axis x
+%   -theta: rotation angle axis y
+%   -psi:   rotation angle axis z
+%%Output:
+%   -rot = rotation matrix 
 
     r = deg2rad(phi);
     p = deg2rad(theta);
