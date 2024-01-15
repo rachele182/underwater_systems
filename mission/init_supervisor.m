@@ -157,7 +157,7 @@ errVelTurn = [0.1 0.1 0.1 0.0175 0.0175 0.0175];
 %surfacing
 errPosSurf = errPosDiv;
 errOrSurf = errOrDiv;
-errVelSurf = [0.2 0.2 0.2 0.3491 0.3491 0.3491];
+errVelSurf = [0.2 0.2 0.2 0.3491 0.3491 0.3491];                               
 
 %emergency WP transect
 errPosWPTrans = [0.5 0.2 0.2];
