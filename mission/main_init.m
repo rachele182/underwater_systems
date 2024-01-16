@@ -28,7 +28,7 @@ n_max = 340;                % [rad/s] Maximum propeller rotational speed
 dead_zone_limit = 31.5;     % [rad/s] Corresponding to about 350RPM
 omega = 0.1;                % []  Wake Fraction Number
 
-% kT(J0) function characterisation
+% kT(J0) function characterization
 alpha1 =  0.0113;          % [Ns^2/m/kg/rad^2]
 alpha2 = -0.0091;          % [Ns^2/m/kg/rad]
 
