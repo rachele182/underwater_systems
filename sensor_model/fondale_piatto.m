@@ -1,9 +1,12 @@
-%% Fondale piatto
-% Validazione sonar per angoli di orientazione di pitch and roll
 function  sol_t = fondale_piatto(p_sonar_ned, s_versor_ned)
+%% Flat seabed model
+% Description: script file to validate sonar model in terms of rotation angles: pitch and roll 
+%Inputs: p_sonar_ned: sensor position in NED frame
+%        s_versor_ned: versor espressing sonar direction 
+%Output: sol_t = solution of the intersection between sonar equation and FLAT seabed function 
 syms x y z t
-bat = 40; %batimetria 
-
+bat = 40; %batimetry
+%Sonar model equation 
 sonar = p_sonar_ned + t*s_versor_ned;
 vars = [x, y, z, t];
 eqns = [bat == z; sonar == [x; y; z]];
