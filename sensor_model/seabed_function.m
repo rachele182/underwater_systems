@@ -1,4 +1,4 @@
-%% Fondale 
+%% Seabed function --> sonar down
 function sol_t = seabed_function(p_sonar_ned,s_versor_ned)
     global xfond4 yfond4 zfond4 tfond4 fondale 
     

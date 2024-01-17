@@ -1,5 +1,5 @@
-%% VALIDAZIONE SONAR DOWN
-%Profilo fondale 
+%% SONAR DOWN Validation script file
+%Seabed profile --> sonar down model validation 
 
 function bat = Validazione_sonar(posizione)
 
