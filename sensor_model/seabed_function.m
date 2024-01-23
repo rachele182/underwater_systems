@@ -1,8 +1,11 @@
-%% Seabed function --> sonar down
 function sol_t = seabed_function(p_sonar_ned,s_versor_ned)
-    global xfond4 yfond4 zfond4 tfond4 fondale 
+    %Description: script file to simulate the sonar 
+    %Inputs: p_sonar_ned: sensor position in NED frame
+    %        s_versor_ned: versor espressing sonar direction 
+    %Output: sol_t = solution of the intersection between sonar equation and FLAT seabed function 
+    global xfond4 yfond4 zfond4 tfond4 fondale %here the global variables definining the environment 
     
-    %% Modellazione sonar 
+    %% Sonar model
     sonar = p_sonar_ned + tfond4*s_versor_ned;
     vars = [xfond4, yfond4, zfond4, tfond4];
     eqns = [fondale == zfond4; sonar == [xfond4; yfond4; zfond4]];
