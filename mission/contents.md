@@ -18,7 +18,7 @@ Here after a brief description of the contents of the folder.
 - **How to run**:
     1. run the script main_init.m to set up the complete workspace of the simulation; 
     2. to run a simulation open TeamA_PAsqualo.slx and click on play;
-    3. to visualite animation of the run of simulation run script animazione.m in animation folder;
+    3. to visualize animation of the run of simulation run script animazione.m in animation folder;
     4. to visualize a 2D plot of the simulation --> run script plot2d.m; 
     5. for both visualization files, it is possible to run a simulation and save the result of every simulation as out_*.mat to visualize the animation and plots for each specific simulations.  
 

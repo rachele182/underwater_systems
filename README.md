@@ -26,7 +26,7 @@ The project contains three main folders:
   
 - **animation**: inside you can find the main script to run an animation of the executed mission. 
 
-A guide with a brief description of the files as well as the instruction on how to run the simulation/animation can be find in the **contents.md** inside the mission folder.  
+A guide with a brief description of the files as well as the instruction on how to run the simulation/animation can be found in the **contents.md** inside the mission folder.  
 
 Please note this project was part of at team work of multiple master students. In **sensor_model** we report all the detailed scripts, simulation files developed from the authors in * for the sensor/environment model.   
 In the other two folder you can find the final mission as result of the full-integration between all the five modules.
