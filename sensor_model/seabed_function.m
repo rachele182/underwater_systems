@@ -24,7 +24,5 @@ function sol_t = seabed_function(p_sonar_ned,s_versor_ned)
         
     end
 sol_t = min(soluz); %distanza in uscita dal sonar 
-      
-
 end
 
