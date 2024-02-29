@@ -1,3 +1,9 @@
+% Underwater Systems Project
+% Master Degree in Robotics and Automation Engineering, Dipartimento di Ingegneria, Universita´ di Pisa
+% Authors: Rachele Nebbia Colomba, Chiara Sammarco, Francesco Vezzi, Matteo Paiano
+% copyright            : (C) 2021 Dipartimento di Ingegneria dell´Informazione (DII) // Universita´ di Pisa    
+% email                : rachelenebbia <at> gmail <dot> com
+
 %% SONAR DOWN Validation script file
 %Seabed profile --> sonar down model validation 
 

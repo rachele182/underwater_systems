@@ -2,7 +2,6 @@
 
 Here after a brief description of the contents of the folder.   
 
-
 - **Simulation File**:
     - teamA_PAsqualo.slx: contains simulink file with the full-integrated simulation of the survey mission. 
 

@@ -20,7 +20,7 @@ Below you can visualize a representation of the model of our AUV, "*Pasqualo*".
 
 The project contains three main folders: 
 
-- **sensor_model** : here you can find the matlab/simulink files used to simulate the underwater envirnoment and the sensors;  
+- **sensor_model** : here you can find the matlab/simulink files used to simulate the underwater environment and the sensors;  
 
 - **mission** : here you can find the simulink file and the matlab scripts needed to run the simulation of the complete mission;  
   
@@ -28,8 +28,8 @@ The project contains three main folders:
 
 A guide with a brief description of the files as well as the instruction on how to run the simulation/animation can be found in the **contents.md** inside the mission folder.  
 
-Please note this project was part of at team work of multiple master students. In **sensor_model** we report all the detailed scripts, simulation files developed from the authors in * for the sensor/environment model.   
-In the other two folder you can find the final mission as result of the full-integration between all the five modules.
+Please note this project was part of at team work of multiple students. For copyright reasons,we report all the detailed scripts only in **sensor_model** where simulation files developed from the authors in * for the sensor/environment model.   
+In the other two folders you can find the final mission as result of the full-integration between all the five modules.
 
 <img src="https://github.com/rachele182/navigation_systems/assets/75611841/39082569-4841-47a7-8545-c70805ac7949" width="425">
 

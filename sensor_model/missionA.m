@@ -1,5 +1,12 @@
+% Underwater Systems Project
+% Master Degree in Robotics and Automation Engineering, Dipartimento di Ingegneria, Universita´ di Pisa
+% Authors: Rachele Nebbia Colomba, Chiara Sammarco, Francesco Vezzi, Matteo Paiano
+% copyright            : (C) 2021 Dipartimento di Ingegneria dell´Informazione (DII) // Universita´ di Pisa    
+% email                : rachelenebbia <at> gmail <dot> com
+
 disp('Loading Mission parameters...')
 
+%%Description: Load mission parameters and survey area dimensions
 %% The area of interest is a rectangular area defind through a corner and sides towards North and East (this will not be modified)
 
 areaOfInterestCorner = [42.317744;

@@ -1,3 +1,9 @@
+% Underwater Systems Project
+% Master Degree in Robotics and Automation Engineering, Dipartimento di Ingegneria, Universita´ di Pisa
+% Authors: Rachele Nebbia Colomba, Chiara Sammarco, Francesco Vezzi, Matteo Paiano
+% copyright            : (C) 2021 Dipartimento di Ingegneria dell´Informazione (DII) // Universita´ di Pisa    
+% email                : rachelenebbia <at> gmail <dot> com
+
 function sol_t = seabed_function(p_sonar_ned,s_versor_ned)
     %Description: script file to simulate the sonar 
     %Inputs: p_sonar_ned: sensor position in NED frame
